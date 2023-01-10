@@ -6,9 +6,6 @@ for (let number = 1; number <=100; number++) {
     if (number % 2 != 0) {
         console.log(number);
     }
-    else {
-        continue;
-    }
 }
 // Exercise 2 Section
 console.log("EXERCISE 2:\n==========\n");
@@ -46,33 +43,40 @@ do {
     }
        numbers++;
 } while (numbers <= 100);
+
 // Exercise 4 Section
 console.log("EXERCISE 4:\n==========\n");
 let value = Math.round((Math.random() * 500)); 
 let n = Math.round(Math.random() * (500 - 100) + 100); 
-for (let a = 0; a <= n; a++) {
+let a = 0;    // define 'a' outside of the for loop so we can separate the 2nd if statement
+for (; a <= n; a++) {    // don't need anything before 1st ';' b/c we defined 'a' above
     if (a === value) {
         console.log("Found value!");
         break;
     }
-    if (a != value) {
-        console.log("Did not find value");
-    }
 }
+if (a != value) {
+    console.log("Did not find value");
+} // this if statement outside of the for loop so we only see "Did not find value" once
+
 // Exercise 5 Section
 console.log("EXERCISE 5:\n==========\n");
 let fizzDivisor = Math.round(Math.random() * (10 - 1) + 1);
 let buzzDivisor = Math.round(Math.random() * (10 - 1) + 1);
 n = Math.round(Math.random() * (1000 - 1) + 1);
 let start = Math.round(Math.random() * (10 - 1) + 1);
+console.log(`fizzDivisor: ${fizzDivisor}`);
+console.log(`buzzDivisor: ${buzzDivisor}`);
+console.log(`n: ${n}`);
+console.log(`start: ${start}`);
 for (let i = start; i <= n; i++) {
-    if (i === fizzDivisor && i === buzzDivisor) {
-        console.log("FIZZBUZZ");
+    if (i % fizzDivisor === 0 && i % buzzDivisor === 0) {
+        console.log(`${i} FIZZBUZZ`);
     }
-    else if (i === fizzDivisor) {
-        console.log("FIZZ");
+    else if (i % fizzDivisor === 0) {
+        console.log(`${i} FIZZ`);
     }
-    else if (i === buzzDivisor) {
-        console.log("BUZZ");
+    else if (i % buzzDivisor === 0) {
+        console.log(`${i} BUZZ`);
     }
 }
